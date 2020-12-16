@@ -1,0 +1,132 @@
+{% extends "base.html" %} {% block title %} Appointment {% endblock title %}
+<!-- /////////////////////////////////////////Content -->
+
+{% block page_title %}
+<h1>Appointment</h1>
+{% endblock page_title %}
+<!--  -->
+{% block content %}
+<style>
+  .appointment {
+    background: white;
+    padding: 2em 0;
+  }
+  h3 {
+    text-align: center;
+  }
+</style>
+<div class="appointment col-md-12">
+  <h3>Contact Form {{ name }}</h3>
+  <form
+    id="contact_form"
+    class="wow fadeInUp col-md-12"
+    data-wow-delay=".1s"
+    data-wow-duration="1s"
+    action="{% url  'appointment' %}"
+    method="post"
+  >
+    {% csrf_token %}
+    <div class="row">
+      <!-- Name -->
+      <div class="col-md-6">
+        <div class="form-group">
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="form-control"
+            placeholder="Enter your name"
+            required
+          />
+        </div>
+      </div>
+      <!-- Phone -->
+      <div class="col-md-6">
+        <div class="form-group">
+          <input
+            type="tel"
+            name="phone"
+            id="email"
+            class="form-control"
+            placeholder="Enter your Phone"
+            required
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Email -->
+      <div class="col-md-6">
+        <div class="form-group">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="form-control"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            name="address"
+            id="inputAddress2"
+            placeholder="Address"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <select id="inputState" class="form-control" name="scheldule">
+          <option value="Chosse your Scheldule">Chosse your Scheldule</option>
+          <option value="9 AM to 10 AM">09 AM to 10 AM</option>
+          <option value="11 AM to 12 AM">11 AM to 12 AM</option>
+          <option value="12 PM to 1 PM">12 PM to 01 PM</option>
+          <option value="1 PM to 2 PM">01 PM to 02 PM</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <select id="inputState" class="form-control" name="date">
+          <option value="Choose your Date">Choose your Date</option>
+          <option value="Monday">Monday</option>
+          <option value="Tuesday">Tuesday</option>
+          <option value="Wednesday">Wednesday</option>
+          <option value="Thursday">Thursday</option>
+          <option value="Friday">Friday</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <textarea
+            style="height: 200px"
+            class="form-control"
+            name="message"
+            id="message"
+            rows="5"
+            placeholder="Your Message"
+            required
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          id="form-submit"
+          class="btn btn-skin btn-block"
+          id="submit_btn"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+{% endblock content %}
